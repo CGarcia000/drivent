@@ -44,9 +44,6 @@ async function createBooking(userId: number, roomId: number) {
   }
 
   const booking = await bookingRepository.createBooking(userId, roomId);
-  if (!booking) {
-    throw forbiddenError();
-  }
   return booking;
 }
 
@@ -59,9 +56,6 @@ async function updateBooking(userId: number, bookingId: number, roomId: number) 
   await checkRoom(roomId);
 
   const booking = await bookingRepository.updateBooking(bookingId, roomId);
-  if (!booking) {
-    throw forbiddenError();
-  }
   return booking;
 }
 
